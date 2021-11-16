@@ -2,9 +2,13 @@
   "name": "bitrath.com",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "bitrath_api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/bitrath_api.js",
+    "server": "nodemon backend/bitrath_api.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
