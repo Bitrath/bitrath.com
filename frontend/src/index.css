@@ -7,7 +7,10 @@
 body {
   margin: 0;
   background-color: #ffffff;
-  font-family: -apple-system, Verdana;
+  font-family: 'Poppins', sans-serif;
+  /*-apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

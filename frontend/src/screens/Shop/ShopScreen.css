@@ -1,3 +1,21 @@
 .shopscreen {
-  margin: 55px auto;
+  margin: 55px 5% 55px 5%;
+}
+
+.shopscreen__header {
+  margin: 4% 0%;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url('../../images/AfterlightImage.JPG');
+  background-size: cover;
+  opacity: 0.5;
+}
+
+.shopscreen__header > span {
+  font-weight: bold;
+  font-size: 400%;
+  color: white;
 }

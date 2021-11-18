@@ -3,36 +3,55 @@ import './Navbar.css';
 import { Link } from 'react-router-dom';
 
 //MaterialUI
-import { Paper, Typography } from '@mui/material';
-import { Home, Camera, Storefront, LibraryBooks } from '@mui/icons-material';
+import { Avatar, Paper, Typography, Badge, IconButton } from '@mui/material';
+import {
+  Home,
+  Camera,
+  Storefront,
+  LibraryBooks,
+  ShoppingCart,
+} from '@mui/icons-material';
 
 const Navbar = () => {
   return (
-    <Paper className="navbar" elevation={4}>
-      <div className="navbar_logo">
-        <Typography align="center">bitrath.com</Typography>
-      </div>
-      <div className="navbar_item">
-        <Link to="/">
-          <Home />
-        </Link>
-      </div>
-      <div className="navbar_item">
-        <Link to="/portfolio">
-          <Typography align="center">portfolio</Typography>
-        </Link>
-      </div>
-      <div className="navbar_item">
-        <Link to="/shop">
-          <Typography align="center">shop</Typography>
-        </Link>
-      </div>
-      <div className="navbar_item">
-        <Link to="/blog">
-          <Typography align="center">blog</Typography>
-        </Link>
-      </div>
-    </Paper>
+    <div className="navbar">
+      <ul className="navbar__container">
+        <li className="navbar__logo">
+          <Link to="/">
+            <span>bitrath.com</span>
+          </Link>
+        </li>
+        <li className="navbar__item">
+          <Link to="/">
+            <span>Home</span>
+          </Link>
+        </li>
+        <li className="navbar__item">
+          <Link to="/portfolio">
+            <span>Portfolio</span>
+          </Link>
+        </li>
+        <li className="navbar__item">
+          <Link to="/shop">
+            <span>Shop</span>
+          </Link>
+        </li>
+        <li className="navbar__item">
+          <Link to="/blog">
+            <span>Blog</span>
+          </Link>
+        </li>
+        <li className="navbar__cart">
+          <Link to="/">
+            <IconButton aria-label="Show Cart Items">
+              <Badge badgeContent={2}>
+                <ShoppingCart />
+              </Badge>
+            </IconButton>
+          </Link>
+        </li>
+      </ul>
+    </div>
   );
 };
 

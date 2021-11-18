@@ -1,0 +1,18 @@
+.product__card {
+  max-width: 100%;
+}
+
+.product__media {
+  height: 0;
+  padding-top: 56.25%;
+}
+
+.product__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product__content {
+  display: flex;
+  justify-content: space-between;
+}
