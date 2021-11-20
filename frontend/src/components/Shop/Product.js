@@ -11,14 +11,25 @@ import {
 } from '@mui/material';
 import { AddShoppingCart } from '@mui/icons-material';
 
-const Product = ({ product }) => {
+//FramerMotion
+import { motion } from 'framer-motion';
+
+const Product = ({ product, setSelectedProduct }) => {
   return (
-    <div classname="product">
+    <div classname="product" onClick={() => setSelectedProduct(product)}>
       <Card className="product__card">
-        <CardMedia className="product__media" src="" title={product.name} />
+        <CardMedia
+          component="img"
+          className="product__media"
+          src={require(`../../images/${product.image}`).default}
+          title={product.name}
+        />
+        {/* src={require('../logo.png')} src={product.image}*/}
         <CardContent>
           <div className="product__content">
-            <span>{product.name}</span>
+            <span>
+              <b>{product.name}</b>
+            </span>
             <span>{product.price}</span>
           </div>
           <span>{product.description}</span>
