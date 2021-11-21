@@ -30,7 +30,7 @@ const Product = ({ product, setSelectedProduct }) => {
             <span>
               <b>{product.name}</b>
             </span>
-            <span>{product.price}</span>
+            <span>${product.price}</span>
           </div>
           <span>{product.description}</span>
         </CardContent>

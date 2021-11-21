@@ -42,7 +42,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="navbar__cart">
-          <Link to="/">
+          <Link to="/shop/cart">
             <IconButton aria-label="Show Cart Items">
               <Badge badgeContent={2}>
                 <ShoppingCart />

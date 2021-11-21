@@ -1,0 +1,39 @@
+.cartscreen {
+  margin: 55px 5% 55px 5%;
+}
+
+.cartscreen__title {
+  margin-top: 5%;
+  margin-bottom: 15px;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.cartscreen__empty > a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+  margin-top: 10px;
+}
+
+.cartscreen__empty > a:hover {
+  background-color: rgb(238, 238, 238);
+  border-radius: 20px;
+  border-color: rgb(230, 217, 217);
+}
+
+.cartscreen__filled__emptyButton {
+  min-width: 150px;
+  margin-bottom: 5px;
+}
+
+.cartscreen__filled__checkoutButton {
+  min-width: 150px;
+}
+
+.cartscreen__filled__cartdetails {
+  display: flex;
+  margin-top: 5%;
+  width: 100%;
+  justify-content: space-between;
+}

@@ -1,0 +1,21 @@
+.cartitem {
+}
+
+.cartitem__media {
+  max-height: 56.25%;
+}
+
+.cartitem__cardContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartitem__cardactions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartitem__buttons {
+  display: flex;
+  align-items: center;
+}
