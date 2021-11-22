@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const express = require('express');
 const connectionToCluster = require('./config/database');
+const productRoutes = require('./routes/productRoutes');
 
 //SetUp a connection to the Cluster
 connectionToCluster();
@@ -10,8 +11,14 @@ connectionToCluster();
 //SetUp a basic Express Server API
 const bitrath_api = express();
 
-//Get the whole API and send a basic MESSAGE
-bitrath_api.get('/', (req, res) => {
+//SetUp to use -Routes
+bitrath_api.use(express.json());
+
+//Product Routes
+bitrath_api.use('/api/products', productRoutes);
+
+//When a GET request is made to the Homepage -> "/" respond with 'Server is ready'
+bitrath_api.get('/*', (req, res) => {
   res.send('<center>Server is ready</center>');
 });
 

@@ -11,17 +11,15 @@
 .modal__content {
   display: flex;
   margin: 70px auto;
+  padding: 10px 10px;
 
   width: 70%;
   height: 80%;
 }
 
-.modal__grid {
-  padding: 10px 10px;
-}
-
 .modal__grid__item {
   width: 30%;
+  margin: 10px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +32,7 @@
 }
 
 .modal__grid__img > img {
-  max-height: 500px;
+  max-height: 450px;
 }
 
 .modal__stack {

@@ -8,7 +8,8 @@ import {
   Stack,
   IconButton,
   Divider,
-  Container,
+  Card,
+  CardMedia,
 } from '@mui/material';
 import { AddShoppingCart } from '@mui/icons-material';
 
@@ -37,12 +38,16 @@ const ModalProduct = ({ selectedProduct, setSelectedProduct }) => {
     >
       <Paper className="modal__content" elevation={4}>
         <Grid container justify="center" spacing={4} className="modal__grid">
-          <Grid item xs={12} sm={6} md={6} lg={6} className="modal__grid__item">
-            <div className="modal__grid__img">
-              <img src={imageOverride()} />
-            </div>
+          <Grid item xs={6} sm={6} md={6} lg={6} className="modal__grid__item">
+            <Card className="modal__grid__img">
+              <CardMedia
+                component="img"
+                src={imageOverride()}
+                title={selectedProduct.name}
+              />
+            </Card>
           </Grid>
-          <Grid item xs={12} sm={6} md={6} lg={6}>
+          <Grid item xs={6} sm={6} md={6} lg={6}>
             <Stack
               className="modal__stack"
               spacing={2}
