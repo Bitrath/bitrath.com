@@ -11,28 +11,28 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const theme = createTheme({
-  palette: {
-    neutral: {
-      main: '#000',
-      contrastText: '#fff',
+const CartItem = ({ item, removeHandler }) => {
+  const theme = createTheme({
+    palette: {
+      neutral: {
+        main: '#000',
+        contrastText: '#fff',
+      },
     },
-  },
-});
+  });
 
-const CartItem = () => {
   return (
     <div className="cartitem">
       <Card>
         <CardMedia
           component="img"
-          src={require('../../images/sardegna2021_b_3.png').default}
-          alt="product name"
+          src={require(`../../images/${item.product.imagePath}`).default}
+          alt={item.product.name}
           className="cartitem__media"
         />
         <CardContent className="cartitem__content">
-          <h4>Product Name</h4>
-          <h5>$5</h5>
+          <h4>{item.product.name}</h4>
+          <h5>${item.product.price}</h5>
         </CardContent>
         <CardActions className="cartitem__cardactions">
           <ThemeProvider theme={theme}>
@@ -40,12 +40,17 @@ const CartItem = () => {
               <Button size="small" type="button" color="neutral">
                 -
               </Button>
-              <span>10</span>
+              <span>{item.qty}</span>
               <Button size="small" type="button" color="neutral">
                 +
               </Button>
             </div>
-            <Button variant="outlined" type="button" color="neutral">
+            <Button
+              variant="outlined"
+              type="button"
+              color="neutral"
+              onClick={() => removeHandler(item.product._id)}
+            >
               Remove
             </Button>
           </ThemeProvider>

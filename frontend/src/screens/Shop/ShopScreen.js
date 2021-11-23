@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import './ShopScreen.css';
 
 //MaterialUI
@@ -8,8 +9,11 @@ import { Grid } from '@mui/material';
 import Product from '../../components/Shop/Product';
 import ModalProduct from '../../components/Shop/ModalProduct';
 
+//Redux Actions
+import { getProducts as listProducts } from '../../redux/actions/productActions';
+
 //Products STATIC
-const products = [
+const products_static = [
   {
     id: 1,
     name: 'A glimpse at the present, a feeling of the past. #1',
@@ -40,8 +44,16 @@ const products = [
   },
 ];
 
-const ShopScreen = () => {
+const ShopScreen = ({ match, history }) => {
   const [selectedProduct, setSelectedProduct] = useState({});
+  const dispatch = useDispatch();
+  const getProducts = useSelector((state) => state.getProducts);
+  const { products, loading, error } = getProducts;
+
+  //try if the action works
+  useEffect(() => {
+    dispatch(listProducts());
+  }, [dispatch]);
 
   const isEmpty = (value) => {
     return (
@@ -57,17 +69,25 @@ const ShopScreen = () => {
         <span>Shop</span>
       </div>
       <Grid container justify="center" spacing={4}>
-        {products.map((product) => (
-          <Grid item key={product.id} xs={12} sm={6} md={4} lg={2}>
-            <Product
-              product={product}
-              setSelectedProduct={setSelectedProduct}
-            />
-          </Grid>
-        ))}
+        {loading ? (
+          <h2>Loading...</h2>
+        ) : error ? (
+          <h2>{error}</h2>
+        ) : (
+          products.map((product) => (
+            <Grid item xs={12} sm={6} md={4} lg={2}>
+              <Product
+                key={product._id}
+                product={product}
+                setSelectedProduct={setSelectedProduct}
+              />
+            </Grid>
+          ))
+        )}
       </Grid>
       {status === false && (
         <ModalProduct
+          key={selectedProduct._id}
           selectedProduct={selectedProduct}
           setSelectedProduct={setSelectedProduct}
         />

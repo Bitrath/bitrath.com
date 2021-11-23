@@ -1,5 +1,11 @@
 import React from 'react';
 import './Product.css';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+//Redux Actions
+import { addToCart } from '../../redux/actions/cartActions';
 
 //MaterialUI
 import {
@@ -14,14 +20,26 @@ import { AddShoppingCart } from '@mui/icons-material';
 //FramerMotion
 import { motion } from 'framer-motion';
 
-const Product = ({ product, setSelectedProduct }) => {
+const Product = ({ key, product, setSelectedProduct }) => {
+  const qty = 1;
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(product._id, qty));
+    history.push('/cart');
+  };
+
   return (
-    <div classname="product" onClick={() => setSelectedProduct(product)}>
-      <Card className="product__card">
+    <div classname="product">
+      <Card
+        className="product__card"
+        onClick={() => setSelectedProduct(product)}
+      >
         <CardMedia
           component="img"
           className="product__media"
-          src={require(`../../images/${product.image}`).default}
+          src={require(`../../images/${product.imagePath}`).default}
           title={product.name}
         />
         {/* src={require('../logo.png')} src={product.image}*/}
@@ -32,10 +50,10 @@ const Product = ({ product, setSelectedProduct }) => {
             </span>
             <span>${product.price}</span>
           </div>
-          <span>{product.description}</span>
+          <span>{product.printSize}</span>
         </CardContent>
         <CardActions disableSpacing className="product__actions">
-          <IconButton aria-label="Add To Cart">
+          <IconButton aria-label="Add To Cart" onClick={addToCartHandler}>
             <AddShoppingCart />
           </IconButton>
         </CardActions>

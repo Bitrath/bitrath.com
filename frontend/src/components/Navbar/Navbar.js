@@ -1,18 +1,19 @@
 import React from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 //MaterialUI
-import { Avatar, Paper, Typography, Badge, IconButton } from '@mui/material';
-import {
-  Home,
-  Camera,
-  Storefront,
-  LibraryBooks,
-  ShoppingCart,
-} from '@mui/icons-material';
+import { Badge, IconButton } from '@mui/material';
+import { ShoppingCart } from '@mui/icons-material';
 
 const Navbar = () => {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
+  const getCartCount = () => {
+    return cartItems.reduce((qty, item) => qty + Number(item.qty), 0);
+  };
   return (
     <div className="navbar">
       <ul className="navbar__container">
@@ -42,9 +43,9 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="navbar__cart">
-          <Link to="/shop/cart">
+          <Link to="/cart">
             <IconButton aria-label="Show Cart Items">
-              <Badge badgeContent={2}>
+              <Badge badgeContent={getCartCount()}>
                 <ShoppingCart />
               </Badge>
             </IconButton>

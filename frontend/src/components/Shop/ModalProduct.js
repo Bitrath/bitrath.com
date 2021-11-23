@@ -1,5 +1,11 @@
 import React from 'react';
 import './ModalProduct.css';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+//Redux Actions
+import { addToCart } from '../../redux/actions/cartActions';
 
 //MaterialUI
 import {
@@ -16,7 +22,16 @@ import { AddShoppingCart } from '@mui/icons-material';
 //FramerMotion
 import { motion } from 'framer-motion';
 
-const ModalProduct = ({ selectedProduct, setSelectedProduct }) => {
+const ModalProduct = ({ key, selectedProduct, setSelectedProduct }) => {
+  const qty = 1;
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(selectedProduct._id, qty));
+    history.push('/cart');
+  };
+
   const handleClick = (e) => {
     if (e.target.classList.contains('modal__backdrop')) {
       setSelectedProduct({});
@@ -25,7 +40,7 @@ const ModalProduct = ({ selectedProduct, setSelectedProduct }) => {
 
   const imageOverride = () => {
     if (selectedProduct.image !== '') {
-      return require(`../../images/${selectedProduct.image}`).default;
+      return require(`../../images/${selectedProduct.imagePath}`).default;
     }
   };
 
@@ -62,7 +77,10 @@ const ModalProduct = ({ selectedProduct, setSelectedProduct }) => {
               <div className="modal__stack__item__3">
                 <div>${selectedProduct.price}</div>
                 <div>
-                  <IconButton aria-label="Add To Cart">
+                  <IconButton
+                    aria-label="Add To Cart"
+                    onClick={addToCartHandler}
+                  >
                     <AddShoppingCart />
                   </IconButton>
                 </div>
