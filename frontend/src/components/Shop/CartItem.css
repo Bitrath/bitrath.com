@@ -1,8 +1,10 @@
-.cartitem {
+.cartitem__card {
+  /*height: 450px;*/
 }
 
 .cartitem__media {
-  max-height: 56.25%;
+  /*max-height: 43.75%;*/
+  height: 300px;
 }
 
 .cartitem__cardContent {

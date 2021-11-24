@@ -8,13 +8,16 @@ import CartItem from '../../components/Shop/CartItem';
 
 //Redux Actions
 import {
-  addToCart,
+  subToCart,
+  upToCart,
   emptyCart,
   removeFromCart,
+  buyCart,
 } from '../../redux/actions/cartActions';
 
 //MaterialUI
 import { Container, Button, Grid } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const CartScreen = () => {
@@ -33,12 +36,24 @@ const CartScreen = () => {
     );
   };
 
+  const qtyAddChangeHandler = (id, qty) => {
+    dispatch(upToCart(id, qty));
+  };
+
+  const qtySubChangeHandler = (id, qty) => {
+    dispatch(subToCart(id, qty));
+  };
+
   const removeHandler = (id) => {
     dispatch(removeFromCart(id));
   };
 
   const emptyTheCart = () => {
     dispatch(emptyCart());
+  };
+
+  const checkoutTheCart = () => {
+    dispatch(buyCart());
   };
 
   const theme = createTheme({
@@ -49,6 +64,12 @@ const CartScreen = () => {
       },
     },
   });
+
+  const [loading, setLoading] = React.useState(false);
+
+  function handleClick() {
+    setLoading(!loading);
+  }
 
   const EmptyCart = () => (
     <div className="cartscreen__empty">
@@ -63,7 +84,12 @@ const CartScreen = () => {
         <Grid container spacing={3}>
           {cartItems.map((item) => (
             <Grid item xs={12} sm={6} md={4} lg={4}>
-              <CartItem item={item} removeHandler={removeHandler} />
+              <CartItem
+                item={item}
+                removeHandler={removeHandler}
+                qtyAddChangeHandler={qtyAddChangeHandler}
+                qtySubChangeHandler={qtySubChangeHandler}
+              />
             </Grid>
           ))}
         </Grid>
@@ -71,7 +97,7 @@ const CartScreen = () => {
           <span>
             Subtotal of {getCartCount()} items: ${getCartSubTotal().toFixed(2)}
           </span>
-          <div>
+          <div className="cartscreen__filled__buttons">
             <ThemeProvider theme={theme}>
               <Button
                 className="cartscreen__filled__emptyButton"
@@ -79,20 +105,26 @@ const CartScreen = () => {
                 type="button"
                 variant="outlined"
                 color="neutral"
-                sx={{ marginRight: '20px' }}
+                sx={{ marginRight: '20px', marginBottom: '5px' }}
                 onClick={() => emptyTheCart()}
               >
                 Empty Cart
               </Button>
-              <Button
+              <LoadingButton
                 className="cartscreen__filled__checkoutButton"
                 size="large"
                 type="button"
                 variant="outlined"
                 color="neutral"
+                sx={{ marginBottom: '5px' }}
+                loading={loading}
+                onClick={() => {
+                  handleClick();
+                  checkoutTheCart();
+                }}
               >
                 Checkout
-              </Button>
+              </LoadingButton>
             </ThemeProvider>
           </div>
         </div>

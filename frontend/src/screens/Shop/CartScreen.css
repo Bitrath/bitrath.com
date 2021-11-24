@@ -22,9 +22,12 @@
   border-color: rgb(230, 217, 217);
 }
 
+.cartscreen__filled__buttons {
+  row-gap: 10px;
+}
+
 .cartscreen__filled__emptyButton {
   min-width: 150px;
-  margin-bottom: 5px;
 }
 
 .cartscreen__filled__checkoutButton {

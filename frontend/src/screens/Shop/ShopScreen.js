@@ -68,14 +68,14 @@ const ShopScreen = ({ match, history }) => {
       <div className="shopscreen__header">
         <span>Shop</span>
       </div>
-      <Grid container justify="center" spacing={4}>
+      <Grid container justify="center" spacing={4} className="shopscreen__grid">
         {loading ? (
           <h2>Loading...</h2>
         ) : error ? (
           <h2>{error}</h2>
         ) : (
           products.map((product) => (
-            <Grid item xs={12} sm={6} md={4} lg={2}>
+            <Grid item xs={12} sm={6} md={4} lg={4}>
               <Product
                 key={product._id}
                 product={product}

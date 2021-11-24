@@ -7,7 +7,8 @@
   cursor: pointer;
 }
 .product__media {
-  max-height: 56.25%;
+  /*max-height: 56.25%;*/
+  height: 300px;
   padding-top: 0%;
 }
 

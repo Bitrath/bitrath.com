@@ -11,7 +11,12 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const CartItem = ({ item, removeHandler }) => {
+const CartItem = ({
+  item,
+  removeHandler,
+  qtyAddChangeHandler,
+  qtySubChangeHandler,
+}) => {
   const theme = createTheme({
     palette: {
       neutral: {
@@ -23,7 +28,7 @@ const CartItem = ({ item, removeHandler }) => {
 
   return (
     <div className="cartitem">
-      <Card>
+      <Card className="cartitem__card">
         <CardMedia
           component="img"
           src={require(`../../images/${item.product.imagePath}`).default}
@@ -37,11 +42,21 @@ const CartItem = ({ item, removeHandler }) => {
         <CardActions className="cartitem__cardactions">
           <ThemeProvider theme={theme}>
             <div className="cartitem__buttons">
-              <Button size="small" type="button" color="neutral">
+              <Button
+                size="small"
+                type="button"
+                color="neutral"
+                onClick={() => qtySubChangeHandler(item.product._id, item.qty)}
+              >
                 -
               </Button>
               <span>{item.qty}</span>
-              <Button size="small" type="button" color="neutral">
+              <Button
+                size="small"
+                type="button"
+                color="neutral"
+                onClick={() => qtyAddChangeHandler(item.product._id, item.qty)}
+              >
                 +
               </Button>
             </div>

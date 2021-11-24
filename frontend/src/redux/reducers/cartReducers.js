@@ -1,7 +1,10 @@
 import * as actionTypes from '../constants/cartConstants';
 
 //CART REDUCER
-export const cartReducer = (state = { cartItems: [] }, action) => {
+export const cartReducer = (
+  state = { cartItems: [], products: [] },
+  action
+) => {
   switch (action.type) {
     case actionTypes.ADD_TO_CART:
       const item = action.payload;
@@ -21,6 +24,37 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
           cartItems: [...state.cartItems, item],
         };
       }
+
+    case actionTypes.SUB_QTY_CART:
+      const subItem = state.cartItems.find(
+        (x) => x.product._id === action.payload.product._id
+      );
+      subItem.qty -= 1;
+      if (subItem.qty <= 0) {
+        subItem.qty += 1;
+      }
+      return {
+        ...state,
+        cartItems: state.cartItems.map((x) =>
+          x.product._id === subItem.product._id ? subItem : x
+        ),
+      };
+
+    case actionTypes.UP_QTY_CART:
+      const upItem = state.cartItems.find(
+        (x) => x.product._id === action.payload.product._id
+      );
+      upItem.qty += 1;
+      if (upItem.qty > upItem.availability) {
+        upItem.qty -= 1;
+      }
+      return {
+        ...state,
+        cartItems: state.cartItems.map((x) =>
+          x.product._id === upItem.product._id ? upItem : x
+        ),
+      };
+
     case actionTypes.REMOVE_FROM_CART:
       return {
         ...state,
@@ -33,6 +67,32 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       return {
         ...state,
         cartItems: [],
+      };
+
+    case actionTypes.CART_CHECKOUT:
+      const buying = action.payload.cartItems;
+      const stored = action.payload.products;
+
+      if (buying.length !== 0) {
+        buying.map((x) => {
+          stored.map((y) => {
+            if (y._id === x.product._id) {
+              y.availability -= x.qty;
+            }
+            return y;
+          });
+          return x;
+        });
+      }
+      return {
+        ...state,
+        cartItems: [],
+        products: stored,
+      };
+
+    case actionTypes.CART_FAIL:
+      return {
+        error: action.payload,
       };
 
     default:
