@@ -7,12 +7,18 @@ import {
   getProductsReducer,
   getProductDetailsReducer,
 } from './reducers/productReducers';
+import {
+  getImagesReducer,
+  getImageDetailsReducer,
+} from './reducers/imageReducers';
 import { cartReducer } from './reducers/cartReducers';
 
 //Reducer Box setup
 const reducer = combineReducers({
   getProducts: getProductsReducer,
   getProductDetails: getProductDetailsReducer,
+  getImages: getImagesReducer,
+  getImageDetails: getImageDetailsReducer,
   cart: cartReducer,
 });
 
