@@ -9,6 +9,10 @@
   font-weight: bolder;
 }
 
+.cartscreen__title {
+  margin-bottom: 20px;
+}
+
 .cartscreen__empty > a {
   text-decoration: none;
   cursor: pointer;

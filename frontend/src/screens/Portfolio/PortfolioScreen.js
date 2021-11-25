@@ -45,7 +45,7 @@ const PortfolioScreen = () => {
         <ImageList
           variant="masonry"
           cols={sizes()}
-          gap={10}
+          gap={25}
           sx={{ width: '100%' }}
           loading="lazy"
         >
@@ -55,7 +55,7 @@ const PortfolioScreen = () => {
             <h2>{error}</h2>
           ) : (
             images.map((item) => (
-              <ImageListItem key={item.imagePath} rows={1}>
+              <ImageListItem key={item.imagePath}>
                 <img
                   src={
                     require(`../../images/${item.imagePath}?w=248&fit=crop&auto=format`)
@@ -67,6 +67,7 @@ const PortfolioScreen = () => {
                   }
                   alt={item.title}
                   loading="lazy"
+                  className="portfolio__image"
                 />
               </ImageListItem>
             ))

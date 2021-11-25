@@ -80,55 +80,53 @@ const CartScreen = () => {
 
   const FilledCart = () => (
     <div className="cartscreen__filled">
-      <>
-        <Grid container spacing={3}>
-          {cartItems.map((item) => (
-            <Grid item xs={12} sm={6} md={4} lg={4}>
-              <CartItem
-                item={item}
-                removeHandler={removeHandler}
-                qtyAddChangeHandler={qtyAddChangeHandler}
-                qtySubChangeHandler={qtySubChangeHandler}
-              />
-            </Grid>
-          ))}
-        </Grid>
-        <div className="cartscreen__filled__cartdetails">
-          <span>
-            Subtotal of {getCartCount()} items: ${getCartSubTotal().toFixed(2)}
-          </span>
-          <div className="cartscreen__filled__buttons">
-            <ThemeProvider theme={theme}>
-              <Button
-                className="cartscreen__filled__emptyButton"
-                size="large"
-                type="button"
-                variant="outlined"
-                color="neutral"
-                sx={{ marginRight: '20px', marginBottom: '5px' }}
-                onClick={() => emptyTheCart()}
-              >
-                Empty Cart
-              </Button>
-              <LoadingButton
-                className="cartscreen__filled__checkoutButton"
-                size="large"
-                type="button"
-                variant="outlined"
-                color="neutral"
-                sx={{ marginBottom: '5px' }}
-                loading={loading}
-                onClick={() => {
-                  handleClick();
-                  checkoutTheCart();
-                }}
-              >
-                Checkout
-              </LoadingButton>
-            </ThemeProvider>
-          </div>
+      <Grid container spacing={3}>
+        {cartItems.map((item) => (
+          <Grid item xs={12} sm={6} md={4} lg={4}>
+            <CartItem
+              item={item}
+              removeHandler={removeHandler}
+              qtyAddChangeHandler={qtyAddChangeHandler}
+              qtySubChangeHandler={qtySubChangeHandler}
+            />
+          </Grid>
+        ))}
+      </Grid>
+      <div className="cartscreen__filled__cartdetails">
+        <span>
+          Subtotal of {getCartCount()} items: ${getCartSubTotal().toFixed(2)}
+        </span>
+        <div className="cartscreen__filled__buttons">
+          <ThemeProvider theme={theme}>
+            <Button
+              className="cartscreen__filled__emptyButton"
+              size="large"
+              type="button"
+              variant="outlined"
+              color="neutral"
+              sx={{ marginRight: '20px', marginBottom: '5px' }}
+              onClick={() => emptyTheCart()}
+            >
+              Empty Cart
+            </Button>
+            <LoadingButton
+              className="cartscreen__filled__checkoutButton"
+              size="large"
+              type="button"
+              variant="outlined"
+              color="neutral"
+              sx={{ marginBottom: '5px' }}
+              loading={loading}
+              onClick={() => {
+                handleClick();
+                checkoutTheCart();
+              }}
+            >
+              Checkout
+            </LoadingButton>
+          </ThemeProvider>
         </div>
-      </>
+      </div>
     </div>
   );
 

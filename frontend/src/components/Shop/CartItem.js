@@ -28,7 +28,7 @@ const CartItem = ({
 
   return (
     <div className="cartitem">
-      <Card className="cartitem__card">
+      <Card className="cartitem__card" sx={{ borderRadius: 5 }}>
         <CardMedia
           component="img"
           src={require(`../../images/${item.product.imagePath}`).default}
@@ -65,6 +65,7 @@ const CartItem = ({
               type="button"
               color="neutral"
               onClick={() => removeHandler(item.product._id)}
+              sx={{ borderRadius: 5 }}
             >
               Remove
             </Button>

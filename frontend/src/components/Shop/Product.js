@@ -35,6 +35,7 @@ const Product = ({ key, product, setSelectedProduct }) => {
       <Card
         className="product__card"
         onClick={() => setSelectedProduct(product)}
+        sx={{ borderRadius: 5 }}
       >
         <CardMedia
           component="img"
