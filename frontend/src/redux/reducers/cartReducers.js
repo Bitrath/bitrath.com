@@ -71,23 +71,18 @@ export const cartReducer = (
 
     case actionTypes.CART_CHECKOUT:
       const buying = action.payload.cartItems;
-      const stored = action.payload.products;
+      const bought = [];
 
       if (buying.length !== 0) {
         buying.map((x) => {
-          stored.map((y) => {
-            if (y._id === x.product._id) {
-              y.availability -= x.qty;
-            }
-            return y;
-          });
-          return x;
+          x.product.availability -= x.qty;
+          return bought.push(x.product);
         });
       }
       return {
         ...state,
         cartItems: [],
-        products: stored,
+        products: bought,
       };
 
     case actionTypes.CART_FAIL:

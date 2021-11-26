@@ -29,8 +29,25 @@ const getProductById = async (req, res) => {
   }
 };
 
+const putNewAvailability = async (req, res) => {
+  try {
+    const bought = req.body;
+    if (bought) {
+      bought.map(async (item) => {
+        const product = await Product.findById(item._id);
+        product.availability = item.availability;
+      });
+      res.json('updated succesfully');
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+};
+
 //Routes will access to the controllers via this export to Node Modules
 module.exports = {
   getAllProducts,
   getProductById,
+  putNewAvailability,
 };

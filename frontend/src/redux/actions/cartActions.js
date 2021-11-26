@@ -123,8 +123,8 @@ export const buyCart = () => async (dispatch, getState) => {
     dispatch({
       type: actionTypes.CART_CHECKOUT,
       payload: {
-        products: data,
         cartItems: getState().cart.cartItems,
+        products: data,
       },
     });
 
@@ -139,11 +139,12 @@ export const buyCart = () => async (dispatch, getState) => {
     });
   }
   /*
-  const body = JSON.stringify(getState().cart.products);
+  const body = getState().cart.products;
   const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
   };
-  const put_res = await axios.post('/api/products', body, headers);
+  const res = await axios.put('/api/products/', body);
+  console.log(res);
   */
 };

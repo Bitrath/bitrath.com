@@ -1,6 +1,5 @@
 import React from 'react';
 import './ModalProduct.css';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -39,7 +38,7 @@ const ModalProduct = ({ key, selectedProduct, setSelectedProduct }) => {
   };
 
   const imageOverride = () => {
-    if (selectedProduct.image !== '') {
+    if (selectedProduct.imagePath !== '') {
       return require(`../../images/${selectedProduct.imagePath}`).default;
     }
   };

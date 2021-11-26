@@ -5,42 +5,22 @@ import * as actionTypes from '../constants/imageConstants';
 //REDUCER: handles Get Images Action
 export const getImagesReducer = (state = { images: [] }, action) => {
   switch (action.type) {
-    case actionTypes.GET_IMAGES_REQUEST:
-      return {
-        loading: true,
-        images: [],
-      };
     case actionTypes.GET_IMAGES_SUCCESS:
       return {
-        loading: false,
+        ...state,
         images: action.payload,
       };
     case actionTypes.GET_IMAGES_FAIL:
       return {
-        loading: false,
         error: action.payload,
       };
-    default:
-      return state;
-  }
-};
-
-//REDUCER: handles Get Image by ID Action
-export const getImageDetailsReducer = (state = { image: {} }, action) => {
-  switch (action.type) {
-    case actionTypes.GET_IMAGE_DETAILS_REQUEST:
+    case actionTypes.GET_IMAGES_CATEGORY_SUCCESS:
       return {
-        loading: true,
-        payload: {},
+        ...state,
+        images: action.payload,
       };
-    case actionTypes.GET_IMAGE_DETAILS_SUCCESS:
+    case actionTypes.GET_IMAGES_CATEGORY_FAIL:
       return {
-        loading: false,
-        payload: action.payload,
-      };
-    case actionTypes.GET_IMAGE_DETAILS_FAIL:
-      return {
-        loading: false,
         error: action.payload,
       };
     default:
