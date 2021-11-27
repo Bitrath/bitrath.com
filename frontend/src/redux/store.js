@@ -9,12 +9,15 @@ import {
 } from './reducers/productReducers';
 import { getImagesReducer } from './reducers/imageReducers';
 import { cartReducer } from './reducers/cartReducers';
+import { articlesReducer, articleIDReducer } from './reducers/articleReducers';
 
 //Reducer Box setup
 const reducer = combineReducers({
   getProducts: getProductsReducer,
   getProductDetails: getProductDetailsReducer,
   images: getImagesReducer,
+  articles: articlesReducer,
+  articleID: articleIDReducer,
   cart: cartReducer,
 });
 

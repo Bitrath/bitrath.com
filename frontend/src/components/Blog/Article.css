@@ -1,0 +1,28 @@
+.article__header {
+  height: 150px;
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article__header__right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.article__header__right > span {
+  padding-right: 10px;
+}
+
+.article__body {
+  height: auto;
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+}

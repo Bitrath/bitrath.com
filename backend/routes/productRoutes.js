@@ -19,7 +19,7 @@ router.get('/', getAllProducts);
 router.get('/:id', getProductById);
 
 //@desc PUT new availability after checkout
-//@route PUT /api/products/
-router.put('/', putNewAvailability);
+//@route PUT /api/products/:num
+router.put('/:num', putNewAvailability);
 
 module.exports = router;

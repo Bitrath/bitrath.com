@@ -1,0 +1,23 @@
+.articlepreview__paper {
+  height: 100px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.articlepreview > a {
+  text-decoration: none;
+  color: black;
+}
+
+.articlepreview__right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.articlepreview__right > span {
+  padding-right: 10px;
+}

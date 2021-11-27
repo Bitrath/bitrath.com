@@ -1,6 +1,5 @@
 import React from 'react';
 import './Product.css';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -16,9 +15,6 @@ import {
   IconButton,
 } from '@mui/material';
 import { AddShoppingCart } from '@mui/icons-material';
-
-//FramerMotion
-import { motion } from 'framer-motion';
 
 const Product = ({ key, product, setSelectedProduct }) => {
   const qty = 1;

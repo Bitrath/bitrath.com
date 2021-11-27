@@ -29,16 +29,14 @@ const getProductById = async (req, res) => {
   }
 };
 
+//@desc PUT new availability after checkout
 const putNewAvailability = async (req, res) => {
   try {
-    const bought = req.body;
-    if (bought) {
-      bought.map(async (item) => {
-        const product = await Product.findById(item._id);
-        product.availability = item.availability;
-      });
-      res.json('updated succesfully');
-    }
+    const bought = { availability: req.params.num };
+    const prod = await Product.findOneAndUpdate(req.body._id, bought, {
+      new: true,
+    });
+    res.json('updated succesfully');
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server Error' });

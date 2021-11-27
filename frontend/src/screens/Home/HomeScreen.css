@@ -1,3 +1,21 @@
 .homescreen {
-  margin: 55px auto;
+  margin: 70px 5% 55px 5%;
+}
+
+.homescreen__header {
+  margin: 20px 0%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../images/IMG_3184.JPG');
+  background-size: cover;
+  opacity: 0.5;
+  border-radius: 20px;
+}
+
+.homescreen__header > span {
+  font-weight: bold;
+  font-size: 400%;
+  color: white;
 }

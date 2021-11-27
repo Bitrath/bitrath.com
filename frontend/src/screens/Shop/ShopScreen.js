@@ -12,38 +12,6 @@ import ModalProduct from '../../components/Shop/ModalProduct';
 //Redux Actions
 import { getProducts as listProducts } from '../../redux/actions/productActions';
 
-//Products STATIC
-const products_static = [
-  {
-    id: 1,
-    name: 'A glimpse at the present, a feeling of the past. #1',
-    description: '10x15mm print',
-    price: '20',
-    image: 'sardegna2021_b_3.png',
-  },
-  {
-    id: 2,
-    name: 'A glimpse at the present, a feeling of the past. #2',
-    description: '10x15mm print',
-    price: '20',
-    image: 'sardegna2021_b_10.png',
-  },
-  {
-    id: 3,
-    name: 'A glimpse at the present, a feeling of the past. #3',
-    description: '10x15mm print',
-    price: '5',
-    image: 'sardegna2021_b_22.png',
-  },
-  {
-    id: 4,
-    name: 'Lerici behind a mirror',
-    description: '10x15mm print',
-    price: '5',
-    image: 'IMG_3195.JPG',
-  },
-];
-
 const ShopScreen = ({ match, history }) => {
   const [selectedProduct, setSelectedProduct] = useState({});
   const dispatch = useDispatch();
@@ -75,7 +43,7 @@ const ShopScreen = ({ match, history }) => {
           <h2>{error}</h2>
         ) : (
           products.map((product) => (
-            <Grid item xs={12} sm={6} md={4} lg={4}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
               <Product
                 key={product._id}
                 product={product}

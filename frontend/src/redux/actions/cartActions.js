@@ -115,7 +115,7 @@ export const emptyCart = () => async (dispatch, getState) => {
   }
 };
 
-//ACTION: Checkout the CART
+//ACTION: Checkout the CART, updates availability onto Server
 export const buyCart = () => async (dispatch, getState) => {
   try {
     const { data } = await axios.get(`/api/products/`);
@@ -129,6 +129,23 @@ export const buyCart = () => async (dispatch, getState) => {
     });
 
     localStorage.setItem('cart', JSON.stringify(getState().cart.cartItems));
+
+    const update = getState().cart.products;
+    if (update) {
+      update.map(async (x) => {
+        const body = JSON.stringify(x);
+        const headers = {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        };
+        const res = await axios.put(
+          `/api/products/${x.availability}`,
+          body,
+          headers
+        );
+        console.log(res);
+      });
+    }
   } catch (error) {
     dispatch({
       type: actionTypes.CART_FAIL,
@@ -138,13 +155,4 @@ export const buyCart = () => async (dispatch, getState) => {
           : error.message,
     });
   }
-  /*
-  const body = getState().cart.products;
-  const headers = {
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
-  };
-  const res = await axios.put('/api/products/', body);
-  console.log(res);
-  */
 };

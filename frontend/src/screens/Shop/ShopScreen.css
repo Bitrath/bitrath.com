@@ -3,8 +3,8 @@
 }
 
 .shopscreen__header {
-  margin: 4% 0%;
-  height: 20rem;
+  margin: 20px 0%;
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { isMobile } from 'react-device-detect';
 import { useSelector, useDispatch } from 'react-redux';
 import './PortfolioScreen.css';
 
@@ -77,17 +76,13 @@ const PortfolioScreen = () => {
         <span>Portfolio</span>
       </div>
       <div className="portfolio__category">
-        <Box sx={{ width: 120 }}>
+        <Box sx={{ width: 120, zIndex: 0 }}>
           <FormControl fullWidth>
             <InputLabel>Categories</InputLabel>
             <Select
               value={selectedCategory}
               label="Categories"
               onChange={handleChange}
-              onClick={(e) => {
-                e.preventDefault();
-                e.target.style.paddingRight = 0;
-              }}
             >
               {categories.map((x) => (
                 <MenuItem value={x} onClick={() => loadCategory(x)}>
