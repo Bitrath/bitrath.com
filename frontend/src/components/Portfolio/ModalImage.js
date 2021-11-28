@@ -3,7 +3,7 @@ import './ModalImage.css';
 
 import { motion } from 'framer-motion';
 
-const ModalImage = ({ id, selectedImage, setSelectedImage }) => {
+const ModalImage = ({ selectedImage, setSelectedImage }) => {
   const handleClick = (e) => {
     if (e.target.classList.contains('modal__backdrop')) {
       setSelectedImage({});

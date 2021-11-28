@@ -32,7 +32,14 @@ const PortfolioScreen = () => {
   const getImages = useSelector((state) => state.images);
   const { images, loading, error } = getImages;
   //Portfolio Constants
-  const categories = ['All', 'Sardegna', 'Lerici'];
+  const categories = [
+    'All',
+    'Tunnel Vision',
+    'Sardegna',
+    'Diffusion',
+    'Monterosso',
+    'Lerici',
+  ];
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up('lg'));
   const laptop = useMediaQuery(theme.breakpoints.up('md'));
@@ -130,7 +137,6 @@ const PortfolioScreen = () => {
       </Box>
       {status === false && (
         <ModalImage
-          key={selectedImage._id}
           selectedImage={selectedImage}
           setSelectedImage={setSelectedImage}
         />

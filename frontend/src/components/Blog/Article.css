@@ -21,8 +21,14 @@
 .article__body {
   height: auto;
   display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
-  padding: 10px 20px;
+  padding: 30px 20px;
   justify-content: space-between;
   align-items: center;
+}
+
+.article__body > div > p {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

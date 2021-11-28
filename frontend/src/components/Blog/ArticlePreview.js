@@ -11,7 +11,7 @@ const ArticlePreview = ({ preview }) => {
       <Link to={`/blog/${preview._id}`}>
         <Paper className="articlepreview__paper" sx={{ borderRadius: 5.5 }}>
           <div className="articlepreview__left">
-            <h1>{preview.title}</h1>
+            <h2>{preview.title}</h2>
             <span>{preview.date}</span>
           </div>
           <div className="articlepreview__right">

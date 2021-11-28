@@ -16,7 +16,7 @@ const Article = ({ article }) => {
       >
         <div className="article__header__left">
           <h1>{article.title}</h1>
-          <span>{article.date}</span>
+          <span>Published on: {article.date}</span>
         </div>
         <div className="article__header__right">
           <span>{article.author}</span>
@@ -29,6 +29,14 @@ const Article = ({ article }) => {
       </Paper>
       <Paper className="article__body" elevation={1} sx={{ borderRadius: 5.5 }}>
         <div>{parse(htmlString)}</div>
+        <div className="article__header__right">
+          <span>Witten by: {article.author}</span>
+          <Avatar
+            alt="Author"
+            src={require('../../images/avatar_bitrath.jpg').default}
+            sx={{ width: 40, height: 40 }}
+          />
+        </div>
       </Paper>
     </div>
   );
