@@ -73,8 +73,10 @@ const CartScreen = () => {
 
   const EmptyCart = () => (
     <div className="cartscreen__empty">
-      <h4>You have no items in your shopping cart, start adding some!</h4>
-      <Link to="/shop">Go To Shop</Link>
+      <center>
+        <h4>Empty</h4>
+        <Link to="/shop">Go To Shop</Link>
+      </center>
     </div>
   );
 
@@ -133,7 +135,7 @@ const CartScreen = () => {
   return (
     <Container className="cartscreen">
       <div className="cartscreen__toolbar">
-        <span className="cartscreen__title">Your Shopping Cart</span>
+        <span className="cartscreen__title">Shopping Cart</span>
         {cartItems.length === 0 ? <EmptyCart /> : <FilledCart />}
       </div>
     </Container>

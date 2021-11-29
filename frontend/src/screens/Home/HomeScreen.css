@@ -2,13 +2,39 @@
   margin: 70px 5% 55px 5%;
 }
 
+.item1 {
+  margin-bottom: 20px;
+}
+
+.item2 > a {
+  text-decoration: none;
+}
+.item3 > a {
+  text-decoration: none;
+}
+.item4 > a {
+  text-decoration: none;
+}
+
+.homescreen__say {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.homescreen__say > span {
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
 .homescreen__header {
   margin: 20px 0%;
   height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('../../images/b_01.jpg');
   background-size: cover;
   opacity: 0.5;
   border-radius: 20px;
@@ -18,4 +44,42 @@
   font-weight: bold;
   font-size: 400%;
   color: white;
+}
+
+.header1 {
+  background-image: url('../../images/b_01.jpg');
+}
+
+.header2 {
+  background-image: url('../../images/b_05.jpg');
+}
+
+.header3 {
+  background-image: url('../../images/b_03.jpg');
+}
+
+.header4 {
+  background-image: url('../../images/b_04.jpg');
+}
+
+.homescreen__biography {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.homescreen__media {
+  width: 300px;
+  height: inherit;
+  object-fit: contain;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+.homescreen__paper {
+  padding: 10px 10px;
+}
+
+.homescreen__paper > p {
+  font-size: 17px;
 }

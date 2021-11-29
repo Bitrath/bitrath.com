@@ -71,7 +71,7 @@ const ModalProduct = ({ key, selectedProduct, setSelectedProduct }) => {
                 {selectedProduct.name}
               </div>
               <div className="modal__stack__item__2">
-                {selectedProduct.description}
+                {selectedProduct.printSize}
               </div>
               <div className="modal__stack__item__3">
                 <div>${selectedProduct.price}</div>

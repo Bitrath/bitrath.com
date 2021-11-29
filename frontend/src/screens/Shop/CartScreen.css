@@ -13,14 +13,14 @@
   margin-bottom: 20px;
 }
 
-.cartscreen__empty > a {
+.cartscreen__empty > center > a {
   text-decoration: none;
   cursor: pointer;
   color: black;
   margin-top: 10px;
 }
 
-.cartscreen__empty > a:hover {
+.cartscreen__empty > center > a:hover {
   background-color: rgb(238, 238, 238);
   border-radius: 20px;
   border-color: rgb(230, 217, 217);

@@ -11,6 +11,7 @@ import ShopScreen from './screens/Shop/ShopScreen';
 import CartScreen from './screens/Shop/CartScreen';
 import BlogScreen from './screens/Blog/BlogScreen';
 import ArticleScreen from './screens/Blog/ArticleScreen';
+import Footer from './components/Navbar/Footer';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/blog/:id" component={ArticleScreen} />
         </Switch>
       </main>
+      <Footer />
     </Router>
   );
 }
