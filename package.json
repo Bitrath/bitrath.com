@@ -12,8 +12,8 @@
     "data:import": "node backend/populateDatabase.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "@bitrath",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
