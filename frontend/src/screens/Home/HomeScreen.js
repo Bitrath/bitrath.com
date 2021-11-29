@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './HomeScreen.css';
 
 //MaterialUI
-import { Stack, Divider } from '@mui/material';
+import { Stack, Divider, Grid } from '@mui/material';
 
 const HomeScreen = () => {
   return (
@@ -12,26 +12,41 @@ const HomeScreen = () => {
         <span>Home</span>
       </div>
       <Stack className="homescreen__stack" divider={<Divider flexItem />}>
-        <div className="item1">
-          <div className="homescreen__biography">
+        <Grid container className="homescreen__grid">
+          <Grid
+            item
+            className="homescreen__biography"
+            xs={12}
+            sm={12}
+            md={6}
+            lg={6}
+          >
             <img
               src={require('../../images/self_01.jpg').default}
               className="homescreen__media"
               alt=""
             />
-            <div className="homescreen__paper">
-              <p>
-                <h4>Hello, I'm Nicolò Zarulli, also known as Bitrath!</h4>
-                <br /> My relationship with photography started during my
-                teenage years and has never left ever since. I use Photography
-                as a method to briefly escape from this world, triying to
-                connect with the nature and the people that sorround me. <br />
-                On this website, you’ll discover some of my most challenging and
-                intimate shots I’ve taken to date. More to come!
-              </p>
-            </div>
-          </div>
-        </div>
+          </Grid>
+          <Grid
+            item
+            className="homescreen__paper"
+            xs={12}
+            sm={12}
+            md={6}
+            lg={6}
+          >
+            <h4>Hello, I'm Nicolò Zarulli, also known as Bitrath!</h4>
+            <p>
+              <br /> My intimate bond with photography started during my teenage
+              years and has never left ever since. Slowly but steady,
+              Photography became likely an excuse to briefly escape from this
+              world, tell stories about the people, the nature that sorrounds
+              me. <br />
+              On this website, you’ll discover some of my most challenging and
+              intimate shots I’ve taken to date. More to come!
+            </p>
+          </Grid>
+        </Grid>
         <div className="item2">
           <div className="homescreen__say">
             <span>Take a look at my work</span>
