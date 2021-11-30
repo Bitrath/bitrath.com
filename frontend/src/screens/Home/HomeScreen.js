@@ -37,10 +37,10 @@ const HomeScreen = () => {
           >
             <h4>Hello, I'm Nicolò Zarulli, also known as Bitrath!</h4>
             <p>
-              <br /> My intimate bond with photography started during my teenage
+              <br /> My intimate bond with Photography started during my teenage
               years and has never left ever since. Slowly but steady,
               Photography became likely an excuse to briefly escape from this
-              world, tell stories about the people, the nature that sorrounds
+              world, tell stories about the people and the nature that sorround
               me. <br />
               On this website, you’ll discover some of my most challenging and
               intimate shots I’ve taken to date. More to come!
