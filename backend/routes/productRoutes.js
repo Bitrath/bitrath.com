@@ -20,6 +20,6 @@ router.get('/:id', getProductById);
 
 //@desc PUT new availability after checkout
 //@route PUT /api/products/:num
-router.put('/:num', putNewAvailability);
+router.put('/update', putNewAvailability);
 
 module.exports = router;

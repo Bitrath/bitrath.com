@@ -133,16 +133,12 @@ export const buyCart = () => async (dispatch, getState) => {
     const update = getState().cart.products;
     if (update) {
       update.map(async (x) => {
-        const body = JSON.stringify(x);
+        const body = x;
         const headers = {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         };
-        const res = await axios.put(
-          `/api/products/${x.availability}`,
-          body,
-          headers
-        );
+        const res = await axios.put(`/api/products/update`, body, headers);
         console.log(res);
       });
     }

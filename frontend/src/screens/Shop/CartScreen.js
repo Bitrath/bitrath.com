@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CartScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -19,12 +19,15 @@ import {
 import { Container, Button, Grid } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import ModalCheckout from '../../components/Shop/ModalCheckout';
 
 const CartScreen = () => {
+  //Redux setup
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  const { cartItems, products } = cart;
 
+  //Client actions
   const getCartCount = () => {
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
   };
@@ -56,6 +59,7 @@ const CartScreen = () => {
     dispatch(buyCart());
   };
 
+  //Button MaterialUI Theme
   const theme = createTheme({
     palette: {
       neutral: {
@@ -65,11 +69,25 @@ const CartScreen = () => {
     },
   });
 
-  const [loading, setLoading] = React.useState(false);
+  //Component Render UseState
+  const [loading, setLoading] = useState(false);
 
-  function handleClick() {
+  const handleClick = () => {
     setLoading(!loading);
-  }
+  };
+
+  //Modal Render Logic
+  const isEmpty = () => {
+    if (products) {
+      if (products.length !== 0) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  };
+
+  const status = isEmpty();
 
   const EmptyCart = () => (
     <div className="cartscreen__empty">
@@ -137,6 +155,9 @@ const CartScreen = () => {
       <div className="cartscreen__toolbar">
         <span className="cartscreen__title">Shopping Cart</span>
         {cartItems.length === 0 ? <EmptyCart /> : <FilledCart />}
+        {status === false && (
+          <ModalCheckout products={products} emptyTheCart={emptyTheCart} />
+        )}
       </div>
     </Container>
   );

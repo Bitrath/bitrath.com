@@ -17,11 +17,13 @@ export const cartReducer = (
           cartItems: state.cartItems.map((x) =>
             x.product._id === existItem.product._id ? item : x
           ),
+          products: [],
         };
       } else {
         return {
           ...state,
           cartItems: [...state.cartItems, item],
+          products: [],
         };
       }
 
@@ -38,6 +40,7 @@ export const cartReducer = (
         cartItems: state.cartItems.map((x) =>
           x.product._id === subItem.product._id ? subItem : x
         ),
+        products: [],
       };
 
     case actionTypes.UP_QTY_CART:
@@ -45,7 +48,7 @@ export const cartReducer = (
         (x) => x.product._id === action.payload.product._id
       );
       upItem.qty += 1;
-      if (upItem.qty > upItem.availability) {
+      if (upItem.qty > upItem.product.availability) {
         upItem.qty -= 1;
       }
       return {
@@ -67,6 +70,7 @@ export const cartReducer = (
       return {
         ...state,
         cartItems: [],
+        products: [],
       };
 
     case actionTypes.CART_CHECKOUT:

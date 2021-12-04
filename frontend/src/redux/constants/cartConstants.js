@@ -5,3 +5,4 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const CART_RESET = 'CART_RESET';
 export const CART_CHECKOUT = 'CART_CHECKOUT';
 export const CART_FAIL = 'CART_FAIL';
+export const CART_PRODUCTS_EMPTY = 'CART_PRODUCTS_EMPTY';

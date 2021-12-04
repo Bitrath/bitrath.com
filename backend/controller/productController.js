@@ -32,14 +32,19 @@ const getProductById = async (req, res) => {
 //@desc PUT new availability after checkout
 const putNewAvailability = async (req, res) => {
   try {
-    const bought = { availability: req.params.num };
-    const prod = await Product.findOneAndUpdate(req.body._id, bought, {
+    const filter = {
+      name: req.body.name,
+    };
+    const bought_av = {
+      availability: req.body.availability,
+    };
+    const prod = await Product.findOneAndUpdate(filter, bought_av, {
       new: true,
     });
-    res.json('updated succesfully');
+    res.json('updated succesfully' + filter.name);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server Error' });
+    res.status(500).json({ message: 'Server Error' + error });
   }
 };
 
