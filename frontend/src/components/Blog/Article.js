@@ -11,7 +11,7 @@ const Article = ({ article }) => {
     <div className="article">
       <Paper
         className="article__header"
-        elevation={1}
+        elevation={5}
         sx={{ borderRadius: 5.5 }}
       >
         <div className="article__header__left">
@@ -27,7 +27,7 @@ const Article = ({ article }) => {
           />
         </div>
       </Paper>
-      <Paper className="article__body" elevation={1} sx={{ borderRadius: 5.5 }}>
+      <Paper className="article__body" elevation={5} sx={{ borderRadius: 5.5 }}>
         <div>{parse(htmlString)}</div>
         <div className="article__header__right">
           <span>Written by: {article.author}</span>

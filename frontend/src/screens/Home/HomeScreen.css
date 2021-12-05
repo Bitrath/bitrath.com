@@ -5,8 +5,8 @@
 .homescreen__grid {
   margin-bottom: 20px;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .item2 > a {
@@ -75,7 +75,7 @@
 .homescreen__biography {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .homescreen__media {

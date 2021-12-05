@@ -16,10 +16,10 @@ const HomeScreen = () => {
           <Grid
             item
             className="homescreen__biography"
-            xs={12}
-            sm={12}
+            xs={0}
+            sm={0}
             md={6}
-            lg={6}
+            lg={5}
           >
             <img
               src={require('../../images/self_01.jpg').default}
@@ -33,7 +33,7 @@ const HomeScreen = () => {
             xs={12}
             sm={12}
             md={6}
-            lg={6}
+            lg={7}
           >
             <h4>Hello, I'm Nicolò Zarulli, also known as Bitrath!</h4>
             <p>
