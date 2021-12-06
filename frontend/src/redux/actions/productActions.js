@@ -9,7 +9,7 @@ export const getProducts = () => async (dispatch) => {
       type: actionTypes.GET_PRODUCTS_REQUEST,
     });
 
-    //the open a GET request to the server
+    //then open a GET request to the server
     const { data } = await axios.get('/api/products');
 
     //if successful then pass the data retrieved as a Payload to the Reducer

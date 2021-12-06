@@ -1,7 +1,5 @@
 import * as actionTypes from '../constants/imageConstants';
 
-//REDUCERS
-
 //REDUCER: handles Get Images Action
 export const getImagesReducer = (state = { images: [] }, action) => {
   switch (action.type) {

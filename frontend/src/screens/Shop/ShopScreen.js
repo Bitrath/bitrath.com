@@ -12,13 +12,14 @@ import ModalProduct from '../../components/Shop/ModalProduct';
 //Redux Actions
 import { getProducts as listProducts } from '../../redux/actions/productActions';
 
-const ShopScreen = ({ match, history }) => {
+const ShopScreen = () => {
+  //Product state
   const [selectedProduct, setSelectedProduct] = useState({});
+  //Redux setup
   const dispatch = useDispatch();
   const getProducts = useSelector((state) => state.getProducts);
   const { products, loading, error } = getProducts;
 
-  //try if the action works
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);
